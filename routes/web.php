@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,6 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', IndexController::class)->name('index');
+
