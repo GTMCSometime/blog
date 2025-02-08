@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Admin\Main\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,4 +24,9 @@ Auth::routes();
 
 
 Route::get('/', IndexController::class)->name('index');
+
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', IndexController::class)->name('index');
+});
 
