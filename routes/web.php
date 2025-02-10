@@ -24,7 +24,7 @@ Auth::routes();
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.index');
     Route::group(['prefix' => 'categories'], function() {
-    Route::get('/', App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category');
+    Route::get('/', App\Http\Controllers\Admin\Category\IndexController::class)->name('category.index');
     });
 });
 
