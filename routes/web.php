@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +21,16 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.index');
+    Route::group(['prefix' => 'categories'], function() {
+    Route::get('/', App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category');
+    });
+});
 
-Route::get('/', IndexController::class)->name('index');
+
+    Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('index');
+
+
+
 
