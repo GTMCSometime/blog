@@ -380,7 +380,7 @@ return [
         [
             'text' => 'Категории',
             'icon' => 'fas fa-th-list',
-            'route' => 'admin.category',
+            'route' => 'admin.category.index',
         ],
         /*[
             'text' => 'warning',

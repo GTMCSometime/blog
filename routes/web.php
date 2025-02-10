@@ -19,14 +19,17 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Auth::routes();
+//Auth::routes();
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.index');
     Route::group(['prefix' => 'categories'], function() {
-    Route::get('/', App\Http\Controllers\Admin\Category\IndexController::class)->name('category.index');
-    });
+        Route::get('/', App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
+        Route::get('/create', App\Http\Controllers\Admin\Category\CreateController::class)->name('admin.category.create');
+        });
+    
 });
+
 
 
     Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('index');

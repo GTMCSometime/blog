@@ -1,0 +1,21 @@
+@extends('admin.layouts.main')
+@section('content_header')
+<section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-12">
+            <!-- small box -->
+            <h6 class="mb-3">Добавление категории</h6>
+            <form action="#" class="w-25">
+  <div class="mb-3">
+    <label for="title" class="form-label">Название</label>
+    <input type="text" class="form-control" placeholder="Название категории">
+  </div>
+  <button type="submit" class="btn btn-primary" value="Добавить">Добавить</button>
+</form>
+            </div>
+        </div>
+        </div>
+    </section>
+@endsection
