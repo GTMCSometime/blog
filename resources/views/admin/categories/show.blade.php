@@ -19,7 +19,7 @@
     <tr>
       <th>ID</th>
       <th>Название</th>
-      <th>Действие</th>
+      <th colspan="2" class="text-center">Действие</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +27,15 @@
       <td>{{ $category->id}}</td>
       <td>{{ $category->title}}</td>
       <td><a href="{{ route('admin.category.edit', $category->id) }}" class="text-success"><i class="fas fa-pencil-alt"></a></td>
+      <td>
+        <form action="{{ route('admin.category.delete', $category->id) }}", method="post">
+          @csrf
+          @method('delete') 
+          <button type="submit" class="border-0">
+        <i class="text-danger"><i class="fas fa-trash text-danger" role="button"></i>
+        </button>
+        </form>
+      </td>
     </tr>
   </tbody>
 </table>
