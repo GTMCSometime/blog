@@ -19,12 +19,14 @@
     <tr>
       <th>ID</th>
       <th>Название</th>
+      <th>Действие</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>{{ $category->id}}</td>
       <td>{{ $category->title}}</td>
+      <td><a href="{{ route('admin.category.edit', $category->id) }}" class="text-success"><i class="fas fa-pencil-alt"></a></td>
     </tr>
   </tbody>
 </table>
