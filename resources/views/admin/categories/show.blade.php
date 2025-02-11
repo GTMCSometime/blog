@@ -19,19 +19,20 @@
     <tr>
       <th>ID</th>
       <th>Название</th>
-      <th>Действие</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($categories as $category)
     <tr>
       <td>{{ $category->id}}</td>
       <td>{{ $category->title}}</td>
-      <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="far fa-eye"></a></td>
-      @endforeach
     </tr>
   </tbody>
 </table>
+<div class="row">
+        <div class="col- mb-3">
+<a href="{{ route('admin.category.index')}}" class="btn btn-block btn-danger"> Назад</a>
+        </div>
+</div>
 </div>
 </div> 
         </div>
