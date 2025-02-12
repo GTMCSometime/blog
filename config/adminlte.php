@@ -382,6 +382,11 @@ return [
             'icon' => 'fas fa-th-list',
             'route' => 'admin.category.index',
         ],
+        [
+            'text' => 'Теги',
+            'icon' => 'fas fa-tags',
+            'route' => 'admin.tag.index',
+        ],
         /*[
             'text' => 'warning',
             'icon_color' => 'yellow',
