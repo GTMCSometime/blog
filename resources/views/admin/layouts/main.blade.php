@@ -10,10 +10,30 @@
 @stop
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css' )}}">
+
  {{-- Add here extra stylesheets --}}
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
 @section('js')
- <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+<script src="{{ asset('plugins/vendor/jquery/jquery.min.js' )}}"></script>
+<script src="{{ asset('plugins/vendor/jquery/jquery-ui.min.js' )}}"></script>
+<script src="{{ asset('plugins/vendor/bootstrap/js/bootstrap.bundle.min.js' )}}"></script>
+<script src="{{ asset('plugins/summernote/summernote-bs4.min.js' )}}"></script>
+<script>
+$(document).ready(function() {
+  $('#summernote').summernote({
+    toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']]
+  ]}
+  );
+});
+</script>
 @stop

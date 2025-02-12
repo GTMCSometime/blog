@@ -387,6 +387,11 @@ return [
             'icon' => 'fas fa-tags',
             'route' => 'admin.tag.index',
         ],
+        [
+            'text' => 'Посты',
+            'icon' => 'far fa-clipboard',
+            'route' => 'admin.post.index',
+        ],
         /*[
             'text' => 'warning',
             'icon_color' => 'yellow',
