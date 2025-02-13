@@ -23,6 +23,18 @@
 <div class="text-danger">Это поле необходимо заполнить</div>
   @enderror
   </div>
+  <div class="'form-group w-50">
+  <select class="form-select" aria-label="Default select example" name="category_id">
+  <option selected>Выберите категорию</option>
+  @foreach ($categories as $category)
+  <option value="{{ $category->id }}"
+  {{ $category->id == old('category_id') ? 'selected' : ''}}>{{ $category->title }}</option>
+  @endforeach
+</select>
+@error('category_id')
+<div class="text-danger">Необходимо выбрать категорию</div>
+  @enderror
+  </div>
   <div class="w-25">
   <div class="mb-3">
   <label for="formFile" class="form-label">Добавить главное изображение</label>
