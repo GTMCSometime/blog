@@ -23,7 +23,7 @@
 <div class="text-danger">Это поле необходимо заполнить</div>
   @enderror
   </div>
-  <div class="'form-group w-50">
+  <div class="form-group w-50">
   <select class="form-select" aria-label="Default select example" name="category_id">
   <option selected>Выберите категорию</option>
   @foreach ($categories as $category)
@@ -35,6 +35,18 @@
 <div class="text-danger">Необходимо выбрать категорию</div>
   @enderror
   </div>
+  <div class="mb-6 w-50">
+                <div class="form-group">
+                  <label>Теги</label>
+                  <select class="select2" multiple="multiple" name="tag_ids[]" data-placeholder="Выберите тег(и)" style="width: 100%;">
+                    @foreach ($tags as $tag) 
+                    <option {{ is_array(old('tag_ids')) &&
+                     in_array($tag->id, old('tag_ids')) ? 'selected' : '' }}
+                     value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    @endforeach
+                  </select>
+                </div>
+                </div>
   <div class="w-25">
   <div class="mb-3">
   <label for="formFile" class="form-label">Добавить главное изображение</label>

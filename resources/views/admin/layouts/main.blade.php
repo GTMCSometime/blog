@@ -11,12 +11,14 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css' )}}">
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 
  {{-- Add here extra stylesheets --}}
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
 @section('js')
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('plugins/vendor/jquery/jquery.min.js' )}}"></script>
 <script src="{{ asset('plugins/vendor/jquery/jquery-ui.min.js' )}}"></script>
 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js' )}}"></script>
@@ -41,5 +43,6 @@ $(document).ready(function() {
 $(function () {
   bsCustomFileInput.init();
 });
+$('.select2').select2()
 </script>
 @stop

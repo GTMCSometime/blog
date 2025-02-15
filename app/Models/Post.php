@@ -14,6 +14,7 @@ class Post extends Model
         'title',
         'content',
         'category_id',
+        'tag_ids[]',
         'main_image',
         'preview_image'
 
@@ -21,4 +22,8 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $guard = false;
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
+    }
 }
