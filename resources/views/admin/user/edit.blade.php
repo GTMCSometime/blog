@@ -14,8 +14,16 @@
     <label for="name" class="form-label">Имя</label>
     <input type="text" class="form-control" name="name" placeholder="Введите имя"
      value="{{ $user->name}}">
-    @error('title')
-<div class="text-danger">Это поле необходимо заполнить</div>
+    @error('name')
+<div class="text-danger">{{ $message }}</div>
+  @enderror
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Почта</label>
+    <input type="text" class="form-control" name="email" placeholder="Ваша почта"
+    value="{{ $user->email}}">
+    @error('email')
+<div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
 

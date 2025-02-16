@@ -10,7 +10,7 @@ class DeleteController extends BaseController
 
         $user->delete();
      
-        return redirect()->route('admin.post.index');
+        return redirect()->route('admin.user.index');
 
     }
 }
