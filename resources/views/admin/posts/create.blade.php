@@ -14,13 +14,13 @@
     <input type="text" class="form-control" name="title" placeholder="Название поста"
     value="{{ old('title') }}">
     @error('title')
-<div class="text-danger">Это поле необходимо заполнить</div>
+<div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
   <div class="form-group">
   <textarea id="summernote" name="content"> {{ old('content' )}} </textarea>
   @error('content')
-<div class="text-danger">Это поле необходимо заполнить</div>
+<div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
   <div class="form-group w-50">
@@ -32,7 +32,7 @@
   @endforeach
 </select>
 @error('category_id')
-<div class="text-danger">Необходимо выбрать категорию</div>
+<div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
   <div class="mb-6 w-50">
@@ -45,6 +45,9 @@
                      value="{{ $tag->id }}">{{ $tag->title }}</option>
                     @endforeach
                   </select>
+                  @error('tag_ids')
+<div class="text-danger">{{ $message }}</div>
+  @enderror
                 </div>
                 </div>
   <div class="w-25">
@@ -52,14 +55,14 @@
   <label for="formFile" class="form-label">Добавить главное изображение</label>
   <input class="form-control" type="file" name="main_image" value="{{ old('main_image') }}">
   @error('main_image')
-<div class="text-danger">Необходимо добавить файл</div>
+<div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
 <div class="mb-3">
   <label for="formFile" class="form-label">Добавить превью</label>
   <input class="form-control" type="file" name="preview_image" value="{{ old('preview_image') }}">
   @error('preview_image')
-<div class="text-danger">Необходимо добавить файл</div>
+<div class="text-danger">{{ $message }}</div>
   @enderror
 </div>
 </div>
