@@ -378,6 +378,11 @@ return [
         ],*/
         //['header' => 'labels'],
         [
+            'text' => 'Пользователи',
+            'icon' => 'fas fa-users',
+            'route' => 'admin.user.index',
+        ],
+        [
             'text' => 'Категории',
             'icon' => 'fas fa-th-list',
             'route' => 'admin.category.index',
