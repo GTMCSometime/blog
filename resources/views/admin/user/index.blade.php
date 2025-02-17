@@ -19,6 +19,8 @@
     <tr>
       <th>ID</th>
       <th>Никнейм</th>
+      <th>Почта</th>
+      <th>Роль</th>
       <th colspan="3" class="text-center">Действие</th>
     </tr>
   </thead>
@@ -27,6 +29,8 @@
     <tr>
       <td>{{ $user->id}}</td>
       <td>{{ $user->name}}</td>
+      <td>{{ $user->email}}</td>
+      <td>{{ $user->role === 0 ? 'Админ' : 'Читатель' }}</td>
       <td><a href="{{ route('admin.user.show', $user->id) }}"><i class="far fa-eye"></a></td>
       <td><a href="{{ route('admin.user.edit', $user->id) }}" class="text-success"><i class="fas fa-pencil-alt"></a></td>
       <td>

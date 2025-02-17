@@ -11,14 +11,14 @@
               @csrf
   <div class="mb-3">
     <label for="name" class="form-label">Имя</label>
-    <input type="text" class="form-control" name="name" placeholder="Введите имя">
+    <input type="text" class="form-control" name="name" placeholder="Введите имя" value="{{ old('name') }}">
     @error('name')
 <div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Почта</label>
-    <input type="text" class="form-control" name="email" placeholder="Ваша почта">
+    <input type="text" class="form-control" name="email" placeholder="Ваша почта" value="{{ old('email') }}">
     @error('email')
 <div class="text-danger">{{ $message }}</div>
   @enderror
@@ -27,6 +27,18 @@
     <label for="password" class="form-label">Пароль</label>
     <input type="text" class="form-control" name="password" placeholder="Пароль">
     @error('password')
+<div class="text-danger">{{ $message }}</div>
+  @enderror
+  </div>
+  <div class="form-group w-50">
+  <select class="form-select" aria-label="Default select example" name="role">
+  <option selected>Выберите роль пользователя</option>
+  @foreach ($roles as $id => $role)
+  <option value="{{ $id }}"
+  {{ $id === old('role') ? 'selected' : ''}}>{{ $role }}</option>
+  @endforeach
+</select>
+@error('role')
 <div class="text-danger">{{ $message }}</div>
   @enderror
   </div>

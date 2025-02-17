@@ -18,6 +18,7 @@
 <div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
+  <input type="hidden" name="user_id" value="{{ $user->id }}">
   <div class="mb-3">
     <label for="email" class="form-label">Почта</label>
     <input type="text" class="form-control" name="email" placeholder="Ваша почта"
@@ -26,7 +27,18 @@
 <div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
-
+  <div class="form-group w-50">
+  <select class="form-select" aria-label="Default select example" name="role">
+  <option selected>Выберите роль пользователя</option>
+  @foreach ($roles as $id => $role)
+  <option value="{{ $id }}"
+  {{ $id == $user->role ? 'selected' : ''}}>{{ $role }}</option>
+  @endforeach
+</select>
+@error('role')
+<div class="text-danger">{{ $message }}</div>
+  @enderror
+  </div>
   <button type="submit" class="btn btn-primary" value="Добавить">Обновить</button>
 </form>
             </div>
