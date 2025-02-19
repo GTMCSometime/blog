@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,9 +21,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::middleware(['auth',  AdminMiddleware::class])->group(function () {
+Route::middleware(['auth', 'verified', AdminMiddleware::class])->group(function () {
 Route::group(['prefix' => 'admin'], function() {
 
     Route::get('/', App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.index');
