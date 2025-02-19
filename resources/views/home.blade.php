@@ -14,11 +14,14 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-                    <a href="{{ route('dashboard') }}"></a>
+                    {{ __('Вы вошли на сайт!') }}
                 </div>
             </div>
         </div>
     </div>
+    <a class="icon-link" href="{{ route('index') }}">
+  На сайт
+  <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+</a>
 </div>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
@@ -77,7 +78,7 @@ Route::group(['prefix' => 'user'], function() {
 
 
     Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('index');
-
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
