@@ -24,6 +24,31 @@ require __DIR__.'/auth.php';
 
 Auth::routes(['verify' => true]);
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::group(['prefix' => 'personal'], function() {
+    
+
+            Route::get('/', App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
+            /*Route::get('/create', App\Http\Controllers\Personal\CreateController::class)->name('admin.category.create');
+            Route::post('/', App\Http\Controllers\Personal\StoreController::class)->name('admin.category.store');
+            Route::get('/{category}', App\Http\Controllers\Personal\ShowController::class)->name('admin.category.show');
+            Route::get('/{category}/edit', App\Http\Controllers\Personal\EditController::class)->name('admin.category.edit');
+            Route::patch('/{category}', App\Http\Controllers\Personal\UpdateController::class)->name('admin.category.update');
+            Route::delete('/{category}', App\Http\Controllers\Personal\DeleteController::class)->name('admin.category.delete');*/
+
+
+            Route::group(['prefix' => 'liked'], function() {
+                Route::get('/', App\Http\Controllers\Personal\Liked\IndexController::class)->name('personal.liked.index');
+        });
+
+
+            Route::group(['prefix' => 'comment'], function() {
+                Route::get('/', App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
+    });
+});
+});
+
+
 Route::middleware(['auth', 'verified', AdminMiddleware::class])->group(function () {
 Route::group(['prefix' => 'admin'], function() {
 

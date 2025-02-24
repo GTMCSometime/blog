@@ -397,6 +397,11 @@ return [
             'icon' => 'far fa-clipboard',
             'route' => 'admin.post.index',
         ],
+        [
+            'text' => 'Сайт',
+            'icon' => 'fas fa-home',
+            'route' => 'index',
+        ],
         /*[
             'text' => 'warning',
             'icon_color' => 'yellow',
