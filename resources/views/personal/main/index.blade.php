@@ -8,7 +8,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active">Домашняя страница</li> 
+            <li class="breadcrumb-item active">Домой</li> 
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

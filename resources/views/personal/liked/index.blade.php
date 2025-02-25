@@ -8,7 +8,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active">Домашняя страница</li> 
+            <li class="breadcrumb-item"><a href="{{ route('personal.main.index') }}">Домой</a></li>
+            <li class="breadcrumb-item active">Понравившиеся посты</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

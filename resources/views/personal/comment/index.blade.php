@@ -4,42 +4,46 @@
 <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Домашняя страница</h1>
+            <h1 class="m-0">Комментарии</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active">Домашняя страница</li> 
+            <li class="breadcrumb-item"><a href="{{ route('personal.main.index') }}">Домой</a></li>
+            <li class="breadcrumb-item active">Комментарии</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>1</h3>
-
-                <p>Понравившиеся посты</p>
-              </div>
-              <div class="icon">
-                <i class="far fa-heart"></i>
-              </div>
-              <a href="#" class="small-box-footer">подробнее<i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>1</h3>
-
-                <p>Комментарии</p>
-              </div>
-              <div class="icon">
-                <i class="far fa-comments"></i>
-              </div>
-              <a href="#" class="small-box-footer">подробнее<i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-      </div>
+        <div class="col-6">
+        <table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Название</th>
+      <th colspan="3" class="text-center">Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($comments as $comment)
+    <tr>
+      <td>{{ $comment->id}}</td>
+      <td>{{ $comment->message}}</td>
+      <td><a href="{{ route('personal.comment.edit', $comment->id) }}" class="text-success"><i class="fas fa-pencil-alt"></a></td>
+      <td>
+        <form action="{{ route('personal.comment.delete', $comment->id) }}", method="post">
+          @csrf
+          @method('delete')
+          <button type="submit" class="border-0">
+        <i class="text-danger"><i class="fas fa-trash text-danger" role="button"></i>
+        </button>
+        </form>
+      </td>
+      @endforeach
+    </tr>
+  </tbody>
+</table>
+</div>
+</div> 
       </div>
     </section>
 @endsection
