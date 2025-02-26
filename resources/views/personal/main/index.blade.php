@@ -16,7 +16,7 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>1</h3>
+                <h3>{{ $likedPosts }}</h3>
 
                 <p>Понравившиеся посты</p>
               </div>
@@ -29,7 +29,7 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>1</h3>
+                <h3>{{ $comments }}</h3>
 
                 <p>Комментарии</p>
               </div>

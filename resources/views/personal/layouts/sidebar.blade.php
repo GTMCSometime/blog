@@ -24,6 +24,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('post.index') }}" class="nav-link">
+            <i class="fas fa-home"></i>
+              <p>
+                Сайт
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
    

@@ -111,6 +111,10 @@ Route::group(['prefix' => 'user'], function() {
     Route::group(['prefix' => 'post'], function() {
         Route::get('/', App\Http\Controllers\Post\IndexController::class)->name('post.index');
         Route::get('/{post}', App\Http\Controllers\Post\ShowController::class)->name('post.show');
+
+        Route::group(['prefix' => '{post}/comments'], function() {
+            Route::post('/', App\Http\Controllers\Post\Comment\StoreController::class)->name('post.comment.store');
+        });
     
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home');
