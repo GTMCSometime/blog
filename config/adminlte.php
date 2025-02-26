@@ -400,7 +400,7 @@ return [
         [
             'text' => 'Сайт',
             'icon' => 'fas fa-home',
-            'route' => 'index',
+            'route' => 'post.index',
         ],
         /*[
             'text' => 'warning',

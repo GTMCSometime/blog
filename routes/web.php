@@ -106,7 +106,13 @@ Route::group(['prefix' => 'user'], function() {
 
 
 
-    Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('index');
+    Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('main.index');
+
+    Route::group(['prefix' => 'post'], function() {
+        Route::get('/', App\Http\Controllers\Post\IndexController::class)->name('post.index');
+        Route::get('/{post}', App\Http\Controllers\Post\ShowController::class)->name('post.show');
+    
+    });
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
