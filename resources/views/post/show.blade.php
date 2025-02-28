@@ -14,8 +14,9 @@
                     </div>
                 </div>
             </section>
+            @if ($relatedPosts->count() !== 0)
+            
             <div class="row">
-                <div class="col-lg-9 mx-auto">
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Похожие посты</h2>
                         @foreach ($relatedPosts as $relatedPost)
@@ -26,8 +27,33 @@
                                 <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $relatedPost->title }}</h5></a>
                             </div>
                         @endforeach
-                        </div>
                     </section>
+                    </div>
+                    @endif
+                  @auth
+                 <div class="d-flex justify-content-between">
+                    <section class="py-3">
+                        <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                            @csrf
+                            <span style="font-size: 2em;">{{ $post->liked_user_count }}</span>
+                            <button type="submit" class="border-0 bg-transparent">
+                                @if (auth()->user()->likedPosts->contains($post->id))
+                                <i class="fas fa-heart" style="font-size: 2em;"></i>
+                                @else
+                                <i class="far fa-heart" style="font-size: 2em;"></i>
+                                @endif
+                            </button>
+                        </form>
+                        </section>
+                        </div>
+                        @endauth
+                        @guest
+                        <div>
+                        <span style="font-size: 2em;">{{ $post->liked_user_count }}</span> 
+                        <i class="far fa-heart" style="font-size: 2em;"></i>
+                        </div>
+                        @endguest
+                        <div class="row">
                     <section class="comment-list mb-5">
                         <h2 class="section-title mb-5" data-aos="fade-up">комментарии ({{ $post->comments->count() }})</h2>
                         @foreach ($post->comments as $comment)
@@ -42,6 +68,8 @@
                   </div>
                         @endforeach
                     </section>
+                    </div>
+                    <div class="row">
                     <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Отправить комментарий</h2>
                         <form action="{{ route('post.comment.store', $post->id) }}" method="post">
@@ -60,6 +88,7 @@
                             </div>
                         </form>
                     </section>
+                    </div>
                 </div>
             </div>
         </div>

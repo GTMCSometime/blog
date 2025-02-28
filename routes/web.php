@@ -115,8 +115,16 @@ Route::group(['prefix' => 'user'], function() {
         Route::group(['prefix' => '{post}/comments'], function() {
             Route::post('/', App\Http\Controllers\Post\Comment\StoreController::class)->name('post.comment.store');
         });
-    
+        Route::group(['prefix' => '{post}/likes'], function() {
+            Route::post('/', App\Http\Controllers\Post\Like\StoreController::class)->name('post.like.store');
+        });
     });
+    Route::group(['prefix' => 'category'], function() {
+        Route::get('/', App\Http\Controllers\Category\IndexController::class)->name('category.index');
+        Route::get('/{category}/posts', App\Http\Controllers\Category\Post\IndexController::class)->name('category.post.index');
+
+    });
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
