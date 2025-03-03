@@ -15,6 +15,8 @@ class ShowController extends Controller
         ->where('id', '!=', $post->id)
         ->get()
         ->take(3);
-        return view('post.show', compact('post', 'data', 'relatedPosts'));
+        $post->comments->count() < 1 ? $postCount = 'нет комментариев' : $postCount = "комментарии ({$post->comments->count()})";
+
+        return view('post.show', compact('post', 'data', 'relatedPosts', 'postCount'));
     }
 }

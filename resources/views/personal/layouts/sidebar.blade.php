@@ -4,7 +4,7 @@
             <a href="{{ route('personal.main.index') }}" class="nav-link">
             <i class="fa fa-home"></i>
               <p>
-                Домой
+                Личный кабинет
               </p>
             </a>
           </li>
@@ -28,7 +28,7 @@
             <a href="{{ route('post.index') }}" class="nav-link">
             <i class="fas fa-home"></i>
               <p>
-                Сайт
+                Блог
               </p>
             </a>
           </li>

@@ -29,16 +29,14 @@
                             </button>
                         </form>
                         @endauth
-                        @guest
-                        <div>
-                        <span>{{ $post->liked_user_count }}</span> 
-                        <i class="far fa-heart"></i>
                         </div>
-                        @endguest
-                        </div>
+                        <div class="d-flex justify-content-between">
                         <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                         </a>
+                        <span>{{ $post->comments->count()}}
+                        <i class="fa{{ $post->comments->count() > 0 ? 's' : 'r'}} fa-comment mr-1"></i></span>
+                        </div>
                     </div>
                     @endforeach
                 </div>
@@ -55,14 +53,33 @@
                             @foreach ($randomPosts as $randomPost)
                             <div class="col-md-6 blog-post" data-aos="fade-up">
                                 <div class="blog-post-thumbnail-wrapper">
-                                <a href="{{ route('post.show', $post->id) }}">
+                                <a href="{{ route('post.show', $randomPost->id) }}">
                                     <img src="{{ 'storage/' . $randomPost->preview_image }}" alt="blog post">
                                     </a>
                                 </div>
+                                <div class="d-flex justify-content-between">
                                 <p class="blog-post-category">{{ $randomPost->category->title }}</p>
-                                <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
-                                    <h6 class="blog-post-title">{{ $randomPost->title }}</h6>
-                                </a>
+                                @auth
+                        <form action="{{ route('post.like.store', $randomPost->id) }}" method="post">
+                            @csrf
+                            <span>{{ $randomPost->liked_user_count }}</span>
+                            <button type="submit" class="border-0 bg-transparent">
+                                @if (auth()->user()->likedPosts->contains($randomPost->id))
+                                <i class="fas fa-heart"></i>
+                                @else
+                                <i class="far fa-heart"></i>
+                                @endif
+                            </button>
+                        </form>
+                        @endauth
+                        </div>
+                        <div class="d-flex justify-content-between">
+                        <a href="{{ route('post.show', $randomPost->id) }}" class="blog-post-permalink">
+                            <h6 class="blog-post-title">{{ $randomPost->title }}</h6>
+                        </a>
+                        <span>{{ $randomPost->comments->count()}}
+                        <i class="fa{{ $randomPost->comments->count() > 0 ? 's' : 'r'}} fa-comment mr-1"></i></span>
+                        </div>
                             </div>
                             @endforeach
                         </div>

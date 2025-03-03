@@ -18,7 +18,7 @@
               <div class="inner">
                 <h3>{{ $likedPosts }}</h3>
 
-                <p>Понравившиеся посты</p>
+                <p>Понравившиеся посты</p></a>
               </div>
               <div class="icon">
                 <i class="far fa-heart"></i>

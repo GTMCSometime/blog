@@ -28,8 +28,7 @@
     <tr>
       <td>{{ $post->id}}</td>
       <td>{{ $post->title}}</td>
-      <td><a href="#"><i class="far fa-eye"></a></td>
-      <td><a href="#" class="text-success"><i class="fas fa-pencil-alt"></a></td>
+      <td><a href="{{ route('post.show', $post->id) }}"><i class="far fa-eye"></a></td>
       <td>
         <form action="{{ route('personal.liked.delete', $post->id) }}", method="post">
           @csrf

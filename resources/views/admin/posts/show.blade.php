@@ -35,6 +35,7 @@
     <tr>
       <td>{{ $post->id}}</td>
       <td>{{ $post->title}}</td>
+      <td><a href="{{ route('post.show', $post->id) }}"><i class="far fa-eye"></a></td>
       <td><a href="{{ route('admin.post.edit', $post->id) }}" class="text-success"><i class="fas fa-pencil-alt"></a></td>
       <td>
         <form action="{{ route('admin.post.delete', $post->id) }}", method="post">

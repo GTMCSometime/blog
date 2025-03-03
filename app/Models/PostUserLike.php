@@ -11,4 +11,5 @@ class PostUserLike extends Model
 
     protected $table = 'post_user_likes';
     protected $guard = false;
+
 }

@@ -15,7 +15,7 @@
               <div class="icon">
                 <i class="fas fa-users"></i>
               </div>
-              <a href="#" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.user.index') }}" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -30,7 +30,7 @@
               <div class="icon">
                 <i class="fas fa-th-list"></i>
               </div>
-              <a href="#" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.category.index') }}" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -45,7 +45,7 @@
               <div class="icon">
                 <i class="fas fa-tags"></i>
               </div>
-              <a href="#" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.tag.index') }}" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -60,7 +60,7 @@
               <div class="icon">
                 <i class="far fa-clipboard"></i>
               </div>
-              <a href="#" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.post.index') }}" class="small-box-footer">подробнее <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

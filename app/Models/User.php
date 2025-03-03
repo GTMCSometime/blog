@@ -54,6 +54,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return array<string, string>
      */
+
+    //protected $withCount = ['userLikedPosts']; 
     protected function casts(): array
     {
         return [
@@ -70,5 +72,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Comment::class, 'user_id', 'id');
     }
 
+    public function userLikedPosts() {
+        return $this->hasMany(PostUserLike::class, 'user_id', 'id');
+    }
 
 }

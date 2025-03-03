@@ -29,6 +29,7 @@
       <td>{{ $comment->id}}</td>
       <td>{{ $comment->message}}</td>
       <td><a href="{{ route('personal.comment.edit', $comment->id) }}" class="text-success"><i class="fas fa-pencil-alt"></a></td>
+      <td><a href="{{ route('post.show', $comment->post_id) }}"><i class="far fa-eye"></a></td>
       <td>
         <form action="{{ route('personal.comment.delete', $comment->id) }}", method="post">
           @csrf
