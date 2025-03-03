@@ -21,11 +21,7 @@
                             @csrf
                             <span>{{ $post->liked_user_count }}</span>
                             <button type="submit" class="border-0 bg-transparent">
-                                @if (auth()->user()->likedPosts->contains($post->id))
-                                <i class="fas fa-heart"></i>
-                                @else
-                                <i class="far fa-heart"></i>
-                                @endif
+                                <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' :'r' }} fa-heart"></i>
                             </button>
                         </form>
                         @endauth
@@ -35,7 +31,8 @@
                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                         </a>
                         <span>{{ $post->comments->count()}}
-                        <i class="fa{{ $post->comments->count() > 0 ? 's' : 'r'}} fa-comment mr-1"></i></span>
+                        <i class="fa{{ auth()->user()->comments->contains($post->id) ? 's' : 'r'}} fa-comment mr-1"></i>
+                        </span>
                         </div>
                     </div>
                     @endforeach
@@ -64,11 +61,7 @@
                             @csrf
                             <span>{{ $randomPost->liked_user_count }}</span>
                             <button type="submit" class="border-0 bg-transparent">
-                                @if (auth()->user()->likedPosts->contains($randomPost->id))
-                                <i class="fas fa-heart"></i>
-                                @else
-                                <i class="far fa-heart"></i>
-                                @endif
+                                <i class="fa{{ auth()->user()->likedPosts->contains($randomPost->id) ? 's' : 'r'}} fa-heart"></i>
                             </button>
                         </form>
                         @endauth
@@ -78,7 +71,8 @@
                             <h6 class="blog-post-title">{{ $randomPost->title }}</h6>
                         </a>
                         <span>{{ $randomPost->comments->count()}}
-                        <i class="fa{{ $randomPost->comments->count() > 0 ? 's' : 'r'}} fa-comment mr-1"></i></span>
+                        <i class="fa{{ auth()->user()->comments->contains($randomPost->id) ? 's' : 'r'}} fa-comment mr-1"></i>
+                        </span>
                         </div>
                             </div>
                             @endforeach
