@@ -23,14 +23,30 @@
                             </button>
                         </form>
                         @endauth
+                        @guest
+                        <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                            @csrf
+                            <span>{{ $post->liked_user_count }}</span>
+                            <button type="submit" class="border-0 bg-transparent">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </form>
+                        @endguest
                         </div>
                         <div class="d-flex justify-content-between">
                         <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                         </a>
+                        @auth
                         <span>{{ $post->comments->count()}}
-                        <i class="fa{{ auth()->user()->comments->contains($post->id) ? 's' : 'r'}} fa-comment mr-1"></i>
+                        <i class="fa{{ $post->comments->contains('user_id', auth()->user()->id) ? 's' : 'r'}} fa-comment mr-1"></i>
                         </span>
+                        @endauth
+                        @guest
+                        <span>{{ $post->comments->count()}}
+                        <i class="far fa-comment mr-1"></i>
+                        </span>
+                        @endguest
                         </div>
                     </div>
                     @endforeach
