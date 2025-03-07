@@ -29,7 +29,7 @@
                         <form action="{{ route('post.like.store', $post->id) }}" method="post">
                             @csrf
                             <span>{{ $post->liked_user_count }}</span>
-                            <button type="submit" class="border-0 bg-transparent">
+                            <button type="submit" class="border-0 bg-transparent" onclick="login()">
                                 <i class="far fa-heart"></i>
                             </button>
                         </form>
@@ -85,7 +85,7 @@
                         <form action="{{ route('post.like.store', $randomPost->id) }}" method="post">
                             @csrf
                             <span>{{ $randomPost->liked_user_count }}</span>
-                            <button type="submit" class="border-0 bg-transparent">
+                            <button type="submit" class="border-0 bg-transparent" onclick="login()">
                                 <i class="far fa-heart"></i>
                             </button>
                         </form>

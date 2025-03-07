@@ -80,6 +80,11 @@
             </div>
         </div>
     </footer>
+    <script>
+        function login() {
+            alert('Необходимо зайти на сайт!')
+        }
+    </script>
     <script src="{{ asset('assets/vendors/popper.js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/aos/aos.js') }}"></script>
