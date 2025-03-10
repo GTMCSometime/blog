@@ -7,7 +7,7 @@ services:
       - ./:/var/www
       - ./_docker/nginx/conf.d:/etc/nginx/conf.d
     ports:
-      - "8875:80"
+      - 8875:80
     depends_on:
      - app
     container_name: blog_nginx
@@ -26,6 +26,10 @@ services:
     volumes:
       - ./tmp/db:/var/lib/mysql
     environment:
-        MYSQL_DATABASE: mysqldatabasedocker
-        MYSQL_ROOT_PASSWORD: alex2011
+        MYSQL_DATABASE: blog
+        MYSQL_PASSWORD: alex2011
         MYSQL_USER: alex
+    ports:
+      - 8101:3306
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    container_name: blog_db

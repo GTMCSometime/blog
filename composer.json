@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.4",
+        "php": "8.0.30|^8.4",
         "almasaeed2010/adminlte": "~3.0",
         "jeroennoten/laravel-adminlte": "^3.14",
         "laravel/framework": "^11.31",
