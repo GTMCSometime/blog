@@ -1,5 +1,6 @@
 /*!
  * 
+<<<<<<< HEAD
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -9,6 +10,17 @@
  *
  * Date: 2021-10-14T21:15Z
  *
+=======
+ * Super simple wysiwyg editor v0.8.18
+ * https://summernote.org
+ * 
+ * 
+ * Copyright 2013- Alan Hong. and other contributors
+ * summernote may be freely distributed under the MIT license.
+ * 
+ * Date: 2020-05-20T16:47Z
+ * 
+>>>>>>> switch-to-mysql
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -19,9 +31,104 @@
 		var a = factory();
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
+<<<<<<< HEAD
 })(self, function() {
 return /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
+=======
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 9:
+/***/ (function(module, exports) {
+
+>>>>>>> switch-to-mysql
 (function ($) {
   $.extend($.summernote.lang, {
     'bg-BG': {
@@ -46,6 +153,7 @@ var __webpack_exports__ = {};
         floatLeft: 'Подравни в ляво',
         floatRight: 'Подравни в дясно',
         floatNone: 'Без подравняване',
+<<<<<<< HEAD
         shapeRounded: 'Форма: Заоблено',
         shapeCircle: 'Форма: Кръг',
         shapeThumbnail: 'Форма: Миниатюра',
@@ -64,6 +172,26 @@ var __webpack_exports__ = {};
         videoLink: 'Видео линк',
         insert: 'Добави Видео',
         url: 'Видео URL?',
+=======
+        shapeRounded: 'Shape: Rounded',
+        shapeCircle: 'Shape: Circle',
+        shapeThumbnail: 'Shape: Thumbnail',
+        shapeNone: 'Shape: None',
+        dragImageHere: 'Пуснете изображението тук',
+        dropImage: 'Drop image or Text',
+        selectFromFiles: 'Изберете файл',
+        maximumFileSize: 'Maximum file size',
+        maximumFileSizeError: 'Maximum file size exceeded.',
+        url: 'URL адрес на изображение',
+        remove: 'Премахни изображение',
+        original: 'Original'
+      },
+      video: {
+        video: 'Video',
+        videoLink: 'Video Link',
+        insert: 'Insert Video',
+        url: 'Video URL?',
+>>>>>>> switch-to-mysql
         providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion or Youku)'
       },
       link: {
@@ -77,6 +205,7 @@ var __webpack_exports__ = {};
       },
       table: {
         table: 'Таблица',
+<<<<<<< HEAD
         addRowAbove: 'Добави ред отгоре',
         addRowBelow: 'Добави ред отдолу',
         addColLeft: 'Добави колона отляво',
@@ -84,6 +213,15 @@ var __webpack_exports__ = {};
         delRow: 'Изтрии ред',
         delCol: 'Изтрии колона',
         delTable: 'Изтрии таблица'
+=======
+        addRowAbove: 'Add row above',
+        addRowBelow: 'Add row below',
+        addColLeft: 'Add column left',
+        addColRight: 'Add column right',
+        delRow: 'Delete row',
+        delCol: 'Delete column',
+        delTable: 'Delete table'
+>>>>>>> switch-to-mysql
       },
       hr: {
         insert: 'Добави хоризонтална линия'
@@ -136,6 +274,7 @@ var __webpack_exports__ = {};
         action: 'Действие',
         paragraphFormatting: 'Форматиране на параграф',
         documentStyle: 'Стил на документа',
+<<<<<<< HEAD
         extraKeys: 'Екстра бутони'
       },
       help: {
@@ -153,6 +292,25 @@ var __webpack_exports__ = {};
         'justifyCenter': 'Подравняване в центъра',
         'justifyRight': 'Подравняване в дясно',
         'justifyFull': 'Двустранно подравняване',
+=======
+        extraKeys: 'Extra keys'
+      },
+      help: {
+        'insertParagraph': 'Insert Paragraph',
+        'undo': 'Undoes the last command',
+        'redo': 'Redoes the last command',
+        'tab': 'Tab',
+        'untab': 'Untab',
+        'bold': 'Set a bold style',
+        'italic': 'Set a italic style',
+        'underline': 'Set a underline style',
+        'strikethrough': 'Set a strikethrough style',
+        'removeFormat': 'Clean a style',
+        'justifyLeft': 'Set left align',
+        'justifyCenter': 'Set center align',
+        'justifyRight': 'Set right align',
+        'justifyFull': 'Set full align',
+>>>>>>> switch-to-mysql
         'insertUnorderedList': 'Toggle unordered list',
         'insertOrderedList': 'Toggle ordered list',
         'outdent': 'Outdent on current paragraph',
@@ -164,7 +322,11 @@ var __webpack_exports__ = {};
         'formatH4': 'Change current block\'s format as H4',
         'formatH5': 'Change current block\'s format as H5',
         'formatH6': 'Change current block\'s format as H6',
+<<<<<<< HEAD
         'insertHorizontalRule': 'Вмъкни хоризонтално правило',
+=======
+        'insertHorizontalRule': 'Insert horizontal rule',
+>>>>>>> switch-to-mysql
         'linkDialog.show': 'Show Link Dialog'
       },
       history: {
@@ -173,13 +335,25 @@ var __webpack_exports__ = {};
       },
       specialChar: {
         specialChar: 'SPECIAL CHARACTERS',
+<<<<<<< HEAD
         select: 'Избери Специални символи'
+=======
+        select: 'Select Special characters'
+>>>>>>> switch-to-mysql
       }
     }
   });
 })(jQuery);
+<<<<<<< HEAD
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
 });
 //# sourceMappingURL=summernote-bg-BG.js.map
+=======
+
+/***/ })
+
+/******/ });
+});
+>>>>>>> switch-to-mysql

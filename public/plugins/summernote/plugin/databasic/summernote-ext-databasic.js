@@ -20,7 +20,11 @@
     var options = context.options;
     var lang = options.langInfo;
 
+<<<<<<< HEAD
     self.icon = '<i class="fa fa-object-group"></i>';
+=======
+    self.icon = '<i class="fa fa-object-group"/>';
+>>>>>>> switch-to-mysql
 
     // add context menu button for dialog
     context.memo('button.databasic', function() {

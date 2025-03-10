@@ -3,24 +3,40 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
+
+    const ROLE_ADMIN = 0;
+    const ROLE_READER = 1;
+
+    public static function getRoles() {
+        return [
+            self::ROLE_ADMIN => 'Админ',
+            self::ROLE_READER => 'Читатель',
+        ];
+    }
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -38,6 +54,8 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+
+    //protected $withCount = ['userLikedPosts']; 
     protected function casts(): array
     {
         return [
@@ -45,4 +63,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function likedPosts() {
+        return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
+
+    public function userLikedPosts() {
+        return $this->hasMany(PostUserLike::class, 'user_id', 'id');
+    }
+
 }
