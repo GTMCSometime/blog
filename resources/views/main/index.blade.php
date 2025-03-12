@@ -8,7 +8,7 @@
                     @foreach ($posts as $post)
                     <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                         <div class="blog-post-thumbnail-wrapper">
-                            <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
+                            <img src="{{ asset('storage/' . $post->preview_image) }}" alt="blog post">
                         </div>
                         <p class="blog-post-category">{{ $post->category->title }}</p>
                         <a href="#" class="blog-post-permalink">
@@ -30,7 +30,7 @@
                             @foreach ($randomPosts as $randomPost)
                             <div class="col-md-6 blog-post" data-aos="fade-up">
                                 <div class="blog-post-thumbnail-wrapper">
-                                    <img src="{{ 'storage/' . $randomPost->preview_image }}" alt="blog post">
+                                    <img src="{{ asset('storage/' . $randomPost->preview_image) }}" alt="blog post">
                                 </div>
                                 <p class="blog-post-category">{{ $randomPost->category->title }}</p>
                                 <a href="#!" class="blog-post-permalink">
@@ -48,7 +48,7 @@
                         <ul class="post-list">
                             <li class="post">
                                 <a href="#" class="post-permalink media">
-                                    <img src="{{ 'storage/' . $likedPost->preview_image }}" alt="blog post">
+                                    <img src="{{ asset('storage/' . $likedPost->preview_image) }}" alt="blog post">
                                     <div class="media-body">
                                         <h6 class="post-title">{{ $likedPost->title }}</h6>
                                     </div>
