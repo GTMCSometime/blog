@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "2949510068475b26bf7b0985dacaca8b",
-=======
     "content-hash": "2c98746e9c97fbb397df2cd6b71112a0",
->>>>>>> switch-to-mysql
     "packages": [
         {
             "name": "almasaeed2010/adminlte",

@@ -1,16 +1,5 @@
 /*!
  * 
-<<<<<<< HEAD
- * Super simple WYSIWYG editor v0.8.20
- * https://summernote.org
- *
- *
- * Copyright 2013- Alan Hong and contributors
- * Summernote may be freely distributed under the MIT license.
- *
- * Date: 2021-10-14T21:15Z
- *
-=======
  * Super simple wysiwyg editor v0.8.18
  * https://summernote.org
  * 
@@ -20,7 +9,6 @@
  * 
  * Date: 2020-05-20T16:47Z
  * 
->>>>>>> switch-to-mysql
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -31,11 +19,6 @@
 		var a = factory();
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-<<<<<<< HEAD
-})(self, function() {
-return /******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-=======
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -128,7 +111,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 45:
 /***/ (function(module, exports) {
 
->>>>>>> switch-to-mysql
 (function ($) {
   $.extend($.summernote.lang, {
     'tr-TR': {
@@ -180,12 +162,7 @@ return /******/ (function(modules) { // webpackBootstrap
         edit: 'Bağlantıyı düzenle',
         textToDisplay: 'Görüntülemek için',
         url: 'Bağlantı adresi?',
-<<<<<<< HEAD
-        openInNewWindow: 'Yeni pencerede aç',
-        useProtocol: "Varsayılan protokolü kullan"
-=======
         openInNewWindow: 'Yeni pencerede aç'
->>>>>>> switch-to-mysql
       },
       table: {
         table: 'Tablo',
@@ -238,12 +215,7 @@ return /******/ (function(modules) { // webpackBootstrap
         transparent: 'Seffaflık',
         setTransparent: 'Şeffaflığı ayarla',
         reset: 'Sıfırla',
-<<<<<<< HEAD
-        resetToDefault: 'Varsayılanlara sıfırla',
-        cpSelect: 'Seç'
-=======
         resetToDefault: 'Varsayılanlara sıfırla'
->>>>>>> switch-to-mysql
       },
       shortcut: {
         shortcuts: 'Kısayollar',
@@ -294,16 +266,8 @@ return /******/ (function(modules) { // webpackBootstrap
     }
   });
 })(jQuery);
-<<<<<<< HEAD
-/******/ 	return __webpack_exports__;
-/******/ })()
-;
-});
-//# sourceMappingURL=summernote-tr-TR.js.map
-=======
 
 /***/ })
 
 /******/ });
 });
->>>>>>> switch-to-mysql

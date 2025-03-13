@@ -1,16 +1,5 @@
 /*!
  * 
-<<<<<<< HEAD
- * Super simple WYSIWYG editor v0.8.20
- * https://summernote.org
- *
- *
- * Copyright 2013- Alan Hong and contributors
- * Summernote may be freely distributed under the MIT license.
- *
- * Date: 2021-10-14T21:15Z
- *
-=======
  * Super simple wysiwyg editor v0.8.18
  * https://summernote.org
  * 
@@ -20,7 +9,6 @@
  * 
  * Date: 2020-05-20T16:47Z
  * 
->>>>>>> switch-to-mysql
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -31,11 +19,6 @@
 		var a = factory();
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-<<<<<<< HEAD
-})(self, function() {
-return /******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-=======
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -128,7 +111,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 9:
 /***/ (function(module, exports) {
 
->>>>>>> switch-to-mysql
 (function ($) {
   $.extend($.summernote.lang, {
     'bg-BG': {
@@ -153,26 +135,6 @@ return /******/ (function(modules) { // webpackBootstrap
         floatLeft: 'Подравни в ляво',
         floatRight: 'Подравни в дясно',
         floatNone: 'Без подравняване',
-<<<<<<< HEAD
-        shapeRounded: 'Форма: Заоблено',
-        shapeCircle: 'Форма: Кръг',
-        shapeThumbnail: 'Форма: Миниатюра',
-        shapeNone: 'Форма: Без',
-        dragImageHere: 'Пуснете изображението тук',
-        dropImage: 'Пуснете Изображение или Текст',
-        selectFromFiles: 'Изберете файл',
-        maximumFileSize: 'Максимален размер на файла',
-        maximumFileSizeError: 'Достигнат Максимален размер на файла.',
-        url: 'URL адрес на изображение',
-        remove: 'Премахни изображение',
-        original: 'Оригинал'
-      },
-      video: {
-        video: 'Видео',
-        videoLink: 'Видео линк',
-        insert: 'Добави Видео',
-        url: 'Видео URL?',
-=======
         shapeRounded: 'Shape: Rounded',
         shapeCircle: 'Shape: Circle',
         shapeThumbnail: 'Shape: Thumbnail',
@@ -191,7 +153,6 @@ return /******/ (function(modules) { // webpackBootstrap
         videoLink: 'Video Link',
         insert: 'Insert Video',
         url: 'Video URL?',
->>>>>>> switch-to-mysql
         providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion or Youku)'
       },
       link: {
@@ -205,15 +166,6 @@ return /******/ (function(modules) { // webpackBootstrap
       },
       table: {
         table: 'Таблица',
-<<<<<<< HEAD
-        addRowAbove: 'Добави ред отгоре',
-        addRowBelow: 'Добави ред отдолу',
-        addColLeft: 'Добави колона отляво',
-        addColRight: 'Добави колона отдясно',
-        delRow: 'Изтрии ред',
-        delCol: 'Изтрии колона',
-        delTable: 'Изтрии таблица'
-=======
         addRowAbove: 'Add row above',
         addRowBelow: 'Add row below',
         addColLeft: 'Add column left',
@@ -221,7 +173,6 @@ return /******/ (function(modules) { // webpackBootstrap
         delRow: 'Delete row',
         delCol: 'Delete column',
         delTable: 'Delete table'
->>>>>>> switch-to-mysql
       },
       hr: {
         insert: 'Добави хоризонтална линия'
@@ -274,25 +225,6 @@ return /******/ (function(modules) { // webpackBootstrap
         action: 'Действие',
         paragraphFormatting: 'Форматиране на параграф',
         documentStyle: 'Стил на документа',
-<<<<<<< HEAD
-        extraKeys: 'Екстра бутони'
-      },
-      help: {
-        'insertParagraph': 'Добави Параграф',
-        'undo': 'Отмени последната промяна',
-        'redo': 'Върни последната промяна',
-        'tab': 'Tab',
-        'untab': 'Untab',
-        'bold': 'Удебели',
-        'italic': 'Приложи наклонен стил',
-        'underline': 'Приложи подчераване',
-        'strikethrough': 'Приложи зачеркнат стил',
-        'removeFormat': 'Изчисти стилове',
-        'justifyLeft': 'Подравняване в ляво',
-        'justifyCenter': 'Подравняване в центъра',
-        'justifyRight': 'Подравняване в дясно',
-        'justifyFull': 'Двустранно подравняване',
-=======
         extraKeys: 'Extra keys'
       },
       help: {
@@ -310,7 +242,6 @@ return /******/ (function(modules) { // webpackBootstrap
         'justifyCenter': 'Set center align',
         'justifyRight': 'Set right align',
         'justifyFull': 'Set full align',
->>>>>>> switch-to-mysql
         'insertUnorderedList': 'Toggle unordered list',
         'insertOrderedList': 'Toggle ordered list',
         'outdent': 'Outdent on current paragraph',
@@ -322,11 +253,7 @@ return /******/ (function(modules) { // webpackBootstrap
         'formatH4': 'Change current block\'s format as H4',
         'formatH5': 'Change current block\'s format as H5',
         'formatH6': 'Change current block\'s format as H6',
-<<<<<<< HEAD
-        'insertHorizontalRule': 'Вмъкни хоризонтално правило',
-=======
         'insertHorizontalRule': 'Insert horizontal rule',
->>>>>>> switch-to-mysql
         'linkDialog.show': 'Show Link Dialog'
       },
       history: {
@@ -335,25 +262,13 @@ return /******/ (function(modules) { // webpackBootstrap
       },
       specialChar: {
         specialChar: 'SPECIAL CHARACTERS',
-<<<<<<< HEAD
-        select: 'Избери Специални символи'
-=======
         select: 'Select Special characters'
->>>>>>> switch-to-mysql
       }
     }
   });
 })(jQuery);
-<<<<<<< HEAD
-/******/ 	return __webpack_exports__;
-/******/ })()
-;
-});
-//# sourceMappingURL=summernote-bg-BG.js.map
-=======
 
 /***/ })
 
 /******/ });
 });
->>>>>>> switch-to-mysql

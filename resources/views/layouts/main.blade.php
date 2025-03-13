@@ -45,7 +45,7 @@
                         </li>
                     @elseif(Auth::check() && Auth::user()->role == 0)
                     <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.index') }}">Панель администратора</a>
+                            <a class="nav-link" href="#some#">Панель администратора</a>
                         </li>
                         <li class="nav-item">
                     <form class="btn btn-sm btn-outline-danger" method="POST" action="{{ route('logout') }}">

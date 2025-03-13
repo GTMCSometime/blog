@@ -1,16 +1,5 @@
 /*!
  * 
-<<<<<<< HEAD
- * Super simple WYSIWYG editor v0.8.20
- * https://summernote.org
- *
- *
- * Copyright 2013- Alan Hong and contributors
- * Summernote may be freely distributed under the MIT license.
- *
- * Date: 2021-10-14T21:15Z
- *
-=======
  * Super simple wysiwyg editor v0.8.18
  * https://summernote.org
  * 
@@ -20,7 +9,6 @@
  * 
  * Date: 2020-05-20T16:47Z
  * 
->>>>>>> switch-to-mysql
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -31,11 +19,6 @@
 		var a = factory();
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-<<<<<<< HEAD
-})(self, function() {
-return /******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-=======
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -128,7 +111,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 19:
 /***/ (function(module, exports) {
 
->>>>>>> switch-to-mysql
 (function ($) {
   $.extend($.summernote.lang, {
     'fr-FR': {
@@ -171,11 +153,7 @@ return /******/ (function(modules) { // webpackBootstrap
         videoLink: 'Lien vidéo',
         insert: 'Insérer une vidéo',
         url: 'URL de la vidéo',
-<<<<<<< HEAD
-        providers: '(YouTube, Google Drive, Vimeo, Vine, Instagram, DailyMotion or Youku)'
-=======
         providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ou Youku)'
->>>>>>> switch-to-mysql
       },
       link: {
         link: 'Lien',
@@ -184,12 +162,7 @@ return /******/ (function(modules) { // webpackBootstrap
         edit: 'Modifier',
         textToDisplay: 'Texte à afficher',
         url: 'URL du lien',
-<<<<<<< HEAD
-        openInNewWindow: 'Ouvrir dans une nouvelle fenêtre',
-        useProtocol: 'Utiliser le protocole par défaut'
-=======
         openInNewWindow: 'Ouvrir dans une nouvelle fenêtre'
->>>>>>> switch-to-mysql
       },
       table: {
         table: 'Tableau',
@@ -293,16 +266,8 @@ return /******/ (function(modules) { // webpackBootstrap
     }
   });
 })(jQuery);
-<<<<<<< HEAD
-/******/ 	return __webpack_exports__;
-/******/ })()
-;
-});
-//# sourceMappingURL=summernote-fr-FR.js.map
-=======
 
 /***/ })
 
 /******/ });
 });
->>>>>>> switch-to-mysql

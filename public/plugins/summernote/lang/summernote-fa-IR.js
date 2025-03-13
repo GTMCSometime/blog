@@ -1,16 +1,5 @@
 /*!
  * 
-<<<<<<< HEAD
- * Super simple WYSIWYG editor v0.8.20
- * https://summernote.org
- *
- *
- * Copyright 2013- Alan Hong and contributors
- * Summernote may be freely distributed under the MIT license.
- *
- * Date: 2021-10-14T21:15Z
- *
-=======
  * Super simple wysiwyg editor v0.8.18
  * https://summernote.org
  * 
@@ -20,7 +9,6 @@
  * 
  * Date: 2020-05-20T16:47Z
  * 
->>>>>>> switch-to-mysql
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -31,11 +19,6 @@
 		var a = factory();
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-<<<<<<< HEAD
-})(self, function() {
-return /******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-=======
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -128,7 +111,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 17:
 /***/ (function(module, exports) {
 
->>>>>>> switch-to-mysql
 (function ($) {
   $.extend($.summernote.lang, {
     'fa-IR': {
@@ -246,34 +228,6 @@ return /******/ (function(modules) { // webpackBootstrap
       },
       help: {
         'insertParagraph': 'افزودن پاراگراف',
-<<<<<<< HEAD
-        'undo': 'آخرین فرمان را لغو می کند',
-        'redo': 'دستور آخر را دوباره اجرا می کند',
-        'tab': 'تب',
-        'untab': 'لغو تب',
-        'bold': 'استایل ضخیم میدهد',
-        'italic': 'استایل مورب میدهد',
-        'underline': 'استایل زیرخط دار میدهد',
-        'strikethrough': 'استایل خط خورده میدهد',
-        'removeFormat': 'حذف همه استایل ها',
-        'justifyLeft': 'چپ چین',
-        'justifyCenter': 'وسط چین',
-        'justifyRight': 'راست چین',
-        'justifyFull': 'چینش در کل عرض',
-        'insertUnorderedList': 'تغییر بع لیست غیرترتیبی',
-        'insertOrderedList': 'تغییر بع لیست ترتیبی',
-        'outdent': 'گذر از پاراگراف فعلی',
-        'indent': 'قرارگیری بر روی پاراگراف جاری',
-        'formatPara': 'تغییر فرمت متن به تگ <p>',
-        'formatH1': 'تغییر فرمت متن به تگ <h1>',
-        'formatH2': 'تغییر فرمت متن به تگ <h2>',
-        'formatH3': 'تغییر فرمت متن به تگ <h3>',
-        'formatH4': 'تغییر فرمت متن به تگ <h4>',
-        'formatH5': 'تغییر فرمت متن به تگ <h5>',
-        'formatH6': 'تغییر فرمت متن به تگ <h6>',
-        'insertHorizontalRule': 'وارد کردن به صورت افقی',
-        'linkDialog.show': 'نمایش پیام لینک'
-=======
         'undo': 'Undoes the last command',
         'redo': 'Redoes the last command',
         'tab': 'Tab',
@@ -300,7 +254,6 @@ return /******/ (function(modules) { // webpackBootstrap
         'formatH6': 'Change current block\'s format as H6',
         'insertHorizontalRule': 'Insert horizontal rule',
         'linkDialog.show': 'Show Link Dialog'
->>>>>>> switch-to-mysql
       },
       history: {
         undo: 'واچیدن',
@@ -313,16 +266,8 @@ return /******/ (function(modules) { // webpackBootstrap
     }
   });
 })(jQuery);
-<<<<<<< HEAD
-/******/ 	return __webpack_exports__;
-/******/ })()
-;
-});
-//# sourceMappingURL=summernote-fa-IR.js.map
-=======
 
 /***/ })
 
 /******/ });
 });
->>>>>>> switch-to-mysql
