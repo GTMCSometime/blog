@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\Main\IndexController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,13 +26,22 @@ Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::group(['prefix' => 'personal'], function() {
+    
 
             Route::get('/', App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
-        
+            /*Route::get('/create', App\Http\Controllers\Personal\CreateController::class)->name('admin.category.create');
+            Route::post('/', App\Http\Controllers\Personal\StoreController::class)->name('admin.category.store');
+            Route::get('/{category}', App\Http\Controllers\Personal\ShowController::class)->name('admin.category.show');
+            Route::get('/{category}/edit', App\Http\Controllers\Personal\EditController::class)->name('admin.category.edit');
+            Route::patch('/{category}', App\Http\Controllers\Personal\UpdateController::class)->name('admin.category.update');
+            Route::delete('/{category}', App\Http\Controllers\Personal\DeleteController::class)->name('admin.category.delete');*/
+
+
             Route::group(['prefix' => 'liked'], function() {
                 Route::get('/', App\Http\Controllers\Personal\Liked\IndexController::class)->name('personal.liked.index');
                 Route::delete('/{post}', App\Http\Controllers\Personal\Liked\DeleteController::class)->name('personal.liked.delete');
         });
+
 
             Route::group(['prefix' => 'comment'], function() {
                 Route::get('/', App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
@@ -94,6 +104,10 @@ Route::group(['prefix' => 'user'], function() {
 
 
 
+
+
+    Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('main.index');
+
     Route::group(['prefix' => 'post'], function() {
         Route::get('/', App\Http\Controllers\Post\IndexController::class)->name('post.index');
         Route::get('/{post}', App\Http\Controllers\Post\ShowController::class)->name('post.show');
@@ -112,11 +126,3 @@ Route::group(['prefix' => 'user'], function() {
     });
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-
-
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/', IndexController::class)->name('index');
-});
-
