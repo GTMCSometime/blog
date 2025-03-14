@@ -4,7 +4,6 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -54,8 +53,6 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return array<string, string>
      */
-
-    //protected $withCount = ['userLikedPosts']; 
     protected function casts(): array
     {
         return [
@@ -63,17 +60,4 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
-
-    public function likedPosts() {
-        return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
-    }
-
-    public function comments() {
-        return $this->hasMany(Comment::class, 'user_id', 'id');
-    }
-
-    public function userLikedPosts() {
-        return $this->hasMany(PostUserLike::class, 'user_id', 'id');
-    }
-
 }
