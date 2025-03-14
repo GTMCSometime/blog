@@ -11,7 +11,7 @@
                     <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                         <div class="blog-post-thumbnail-wrapper">
                         <a href="{{ route('post.show', $post->id) }}">
-                        <img src="{{ asset('storage/' . $post->preview_image )}}" alt="blog post">
+                        <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
                         </a>
                         </div>
                         <div class="d-flex justify-content-between">
@@ -29,7 +29,7 @@
                         <form action="{{ route('post.like.store', $post->id) }}" method="post">
                             @csrf
                             <span>{{ $post->liked_user_count }}</span>
-                            <button type="submit" class="border-0 bg-transparent" onclick="login()">
+                            <button type="submit" class="border-0 bg-transparent">
                                 <i class="far fa-heart"></i>
                             </button>
                         </form>
@@ -67,7 +67,7 @@
                             <div class="col-md-6 blog-post" data-aos="fade-up">
                                 <div class="blog-post-thumbnail-wrapper">
                                 <a href="{{ route('post.show', $randomPost->id) }}">
-                                    <img src="{{ asset('storage/' . $randomPost->preview_image) }}" alt="blog post">
+                                    <img src="{{ 'storage/' . $randomPost->preview_image }}" alt="blog post">
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-between">
@@ -85,7 +85,7 @@
                         <form action="{{ route('post.like.store', $randomPost->id) }}" method="post">
                             @csrf
                             <span>{{ $randomPost->liked_user_count }}</span>
-                            <button type="submit" class="border-0 bg-transparent" onclick="login()">
+                            <button type="submit" class="border-0 bg-transparent">
                                 <i class="far fa-heart"></i>
                             </button>
                         </form>
@@ -118,7 +118,7 @@
                         <ul class="post-list">
                             <li class="post">
                                 <a href="{{ route('post.show', $likedPost->id) }}" class="post-permalink media">
-                                    <img src="{{ asset('storage/' . $likedPost->preview_image) }}" alt="blog post">
+                                    <img src="{{ 'storage/' . $likedPost->preview_image }}" alt="blog post">
                                     <div class="media-body">
                                         <h6 class="post-title">{{ $likedPost->title }}</h6>
                                     </div>
