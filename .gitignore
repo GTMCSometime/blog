@@ -23,3 +23,4 @@ yarn-error.log
 /.zed
 .yml
 /env/.env
+/tmp

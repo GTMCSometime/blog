@@ -27,7 +27,7 @@
                         <form action="{{ route('post.like.store', $post->id) }}" method="post">
                             @csrf
                             <span>{{ $post->liked_user_count }}</span>
-                            <button type="submit" class="border-0 bg-transparent" onclick="login()">
+                            <button type="submit" class="border-0 bg-transparent">
                                 <i class="far fa-heart"></i>
                             </button>
                         </form>
