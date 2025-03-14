@@ -16,6 +16,10 @@ class StoreController extends BaseController
     public function __invoke(StoreRequest $request) {
 
         $data = $request->validated();
+        $password = Str::random(10);
+        $data['password'] = Hash::make($password);
+        User::firstOrCreate(['email' => $data['email'], $data]);
+        Mail::to($data['email'])->send(new PasswordMail($password));
         StoreUserJob::dispatch($data);
         return redirect()->route('admin.user.index');
 
