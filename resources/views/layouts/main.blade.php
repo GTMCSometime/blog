@@ -94,6 +94,11 @@
             duration: 1000
         });
       </script>
+          <script>
+        function login() {
+            alert('Необходимо зайти на сайт!')
+        }
+    </script>
 </body>
 
 </html>

@@ -21,11 +21,7 @@
                             @csrf
                             <span style="font-size: 2em;">{{ $post->liked_user_count }}</span>
                             <button type="submit" class="border-0 bg-transparent">
-                                @if (auth()->user()->likedPosts->contains($post->id))
-                                <i class="fas fa-heart" style="font-size: 2em;"></i>
-                                @else
-                                <i class="far fa-heart" style="font-size: 2em;"></i>
-                                @endif
+                                <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' : 'r' }} fa-heart" style="font-size: 2em;"></i>
                             </button>
                         </form>
                         </section>
@@ -33,8 +29,17 @@
                         @endauth
                         @guest
                         <div>
-                        <span style="font-size: 2em;">{{ $post->liked_user_count }}</span> 
-                        <i class="far fa-heart" style="font-size: 2em;"></i>
+                        <div class="d-flex justify-content-between">
+                    <section class="py-3">
+                    <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                            @csrf
+                            <span style="font-size: 2em;">{{ $post->liked_user_count }}</span>
+                            <button type="submit" class="border-0 bg-transparent" onclick="login()">
+                                <i class="far fa-heart" style="font-size: 2em;"></i>
+                            </button>
+                        </form>
+                        </section>
+                        </div>
                         </div>
                         @endguest
             @if ($relatedPosts->count() !== 0)
@@ -54,14 +59,19 @@
                             @csrf
                             <span>{{ $relatedPost->liked_user_count }}</span>
                             <button type="submit" class="border-0 bg-transparent">
-                                @if (auth()->user()->likedPosts->contains($relatedPost->id))
-                                <i class="fas fa-heart"></i>
-                                @else
-                                <i class="far fa-heart"></i>
-                                @endif
+                            <i class="fa{{ auth()->user()->likedPosts->contains($relatedPost->id) ? 's' : 'r' }} fa-heart" style="font-size: 2em;"></i>
                             </button>
                         </form>
                         @endauth
+                        @guest
+                        <form action="{{ route('post.like.store', $relatedPost->id) }}" method="post">
+                            @csrf
+                            <span>{{ $relatedPost->liked_user_count }}</span>
+                            <button type="submit" class="border-0 bg-transparent" onclick="login()">
+                            <i class="far fa-heart" style="font-size: 2em;"></i>
+                            </button>
+                        </form>
+                        @endguest
                                 </div>
                                 <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $relatedPost->title }}</h5></a>
                             </div>
