@@ -6,6 +6,7 @@
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200"> {{ $data->translatedFormat('F') }} • {{ $data->day }}, {{ $data->year }}• {{ $data->format('H:i') }} • {{ $postCount}}</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
                 <img src="{{ asset('storage/' . $post->main_image) }}" class="img-thumbnail" alt="featured image" class="w-100" >
+                {{ dd(asset('storage/' . $post->main_image)) }}
             </section>
             <section class="post-content">
                 <div class="row">

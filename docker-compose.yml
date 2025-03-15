@@ -11,7 +11,7 @@ services:
       context: dockerfiles
       dockerfile: php.Dockerfile
     volumes:
-      - ./:/var/www/laravel    
+      - ./:/var/www/laravel   
   mysql:
     restart: always
     image: mysql:9.2.0
