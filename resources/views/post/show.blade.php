@@ -6,7 +6,6 @@
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200"> {{ $data->translatedFormat('F') }} • {{ $data->day }}, {{ $data->year }}• {{ $data->format('H:i') }} • {{ $postCount}}</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
                 <img src="{{ asset('storage/' . $post->main_image) }}" class="img-thumbnail" alt="featured image" class="w-100" >
-                {{ dd(asset('storage/' . $post->main_image)) }}
             </section>
             <section class="post-content">
                 <div class="row">
@@ -88,10 +87,42 @@
                         <div class="comment-text mb-3">
                     <span class="username">
                       <div>
-                      <b>{{ $comment->user->name }}</b>
+                        @if ($comment->parent_id !== null)
+                        <b>{{ $comment->user->name }}  <span style="font-size:0.8em">ответил {{$comment->answer_to_comments->name}}</span></b>
+                        @else
+                        <b>{{ $comment->user->name }}</b>
+                        @endif
                       </div>
-                      <span class="text-muted float-right">{{ $comment->DateAsCarbon->diffForHumans() }}</span>
-                    </span><!-- /.username -->
+                      <span class="text-muted float-right ml-5">{{ $comment->DateAsCarbon->diffForHumans() }}
+                      @auth
+                      @if($comment->user->id !== auth()->user()->id)
+                      <button class="btn btn-primary ml-5" onclick="showPopup()">Ответить</button>
+<div id="popup-overlay">
+  <div id="popup">
+  <form action="{{ route('answer.comment.store', [$post->id, $comment->user->id]) }}" method="post">
+                            @csrf
+                            <div class="row">
+                            
+                                <div class="form-group col-12" data-aos="fade-up">
+                                <label for="message" class="sr-only">Комментарий</label>
+                                <textarea name="message" id="message" class="form-control" placeholder="Комментарий" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" name="post_id" value="{{ $post->id }}">
+                            <input type="hidden" name="parent_id" value="{{ $comment->user->id }}">
+                            <div class="row">
+                                <div class="col-12" data-aos="fade-up">
+                                    <input type="submit" value="ответить" class="btn btn-warning">
+                                    <button onclick="hidePopup()">Закрыть</button>
+                                </div>
+                            </div>
+                        </form>
+  </div>
+</div>
+                     </span>
+                      @endif
+                      @endauth
+                    </span>
                     {{ $comment->message }}
                   </div>
                         @endforeach

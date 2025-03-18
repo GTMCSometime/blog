@@ -23,6 +23,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'message' => 'required|string',
+            'parent_id' => 'nullable|int',
         ];
     }
 }

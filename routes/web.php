@@ -102,13 +102,18 @@ Route::group(['prefix' => 'user'], function() {
     Route::group(['prefix' => 'post'], function() {
         Route::get('/', App\Http\Controllers\Post\IndexController::class)->name('post.index');
         Route::get('/{post}', App\Http\Controllers\Post\ShowController::class)->name('post.show');
+       
+    Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::group(['prefix' => '{post}/comments'], function() {
             Route::post('/', App\Http\Controllers\Post\Comment\StoreController::class)->name('post.comment.store');
         });
+        Route::post('{post}/{parent_id}', App\Http\Controllers\Post\AnswerToComments\StoreController::class)->name('answer.comment.store');
         Route::group(['prefix' => '{post}/likes'], function() {
             Route::post('/', App\Http\Controllers\Post\Like\StoreController::class)->name('post.like.store');
         });
+    
+    });
     });
     Route::group(['prefix' => 'category'], function() {
         Route::get('/', App\Http\Controllers\Category\IndexController::class)->name('category.index');

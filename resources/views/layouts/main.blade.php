@@ -11,6 +11,28 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <script src="{{ asset('assets/vendors/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/loader.js') }}"></script>
+    <style>
+        #popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+#popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
 </head>
 <body>
     <div class="edica-loader"></div>
@@ -89,6 +111,20 @@
     <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/aos/aos.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        const popupOverlay = document.getElementById("popup-overlay");
+const popup = document.getElementById("popup");
+
+function showPopup() {
+  popupOverlay.style.display = "block";
+}
+function hidePopup() {
+  popupOverlay.style.display = "none";
+}
+popupOverlay.addEventListener("click", hidePopup);
+popup.addEventListener("click", (event) => event.stopPropagation());
+
+    </script>
     <script>
         AOS.init({
             duration: 1000

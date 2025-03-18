@@ -15,6 +15,7 @@ class Comment extends Model
         'message',
         'user_id',
         'post_id',
+        'parent_id',
     ];
 
     protected $table = 'comments';
@@ -31,4 +32,9 @@ class Comment extends Model
     public function post() {
         return $this->hasOne(Post::class, 'post_id', 'id');
     }
+
+    public function answer_to_comments() {
+        return $this->belongsTo(User::class, 'parent_id', 'id');
+    }
+
 }
