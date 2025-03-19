@@ -11,14 +11,8 @@ use App\Models\Post;
 class StoreController extends Controller
 {
     public function __invoke(Post $post, StoreRequest $request) {
-        if(!auth()->user()) {
-            return redirect()->route('login');
-        }
-        $data = $request->validated();
-        $data['user_id'] = auth()->user()->id;
-        $data['post_id'] = $post->id;
-        Comment::create($data);
-        return redirect()->back();
+
+ dd(1111111111);
 
     }
 }

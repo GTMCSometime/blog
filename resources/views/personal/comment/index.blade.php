@@ -19,7 +19,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Название</th>
+      <th>Содержание</th>
       <th colspan="3" class="text-center">Действие</th>
     </tr>
   </thead>

@@ -107,12 +107,14 @@ Route::group(['prefix' => 'user'], function() {
 
         Route::group(['prefix' => '{post}/comments'], function() {
             Route::post('/', App\Http\Controllers\Post\Comment\StoreController::class)->name('post.comment.store');
+            
         });
-        Route::post('{post}/{parent_id}', App\Http\Controllers\Post\AnswerToComments\StoreController::class)->name('answer.comment.store');
+        Route::get('/{post_id}/{parent_id}', App\Http\Controllers\Post\AnswerToComments\ShowController::class)->name('answer.comment.store');
+
         Route::group(['prefix' => '{post}/likes'], function() {
             Route::post('/', App\Http\Controllers\Post\Like\StoreController::class)->name('post.like.store');
         });
-    
+        
     });
     });
     Route::group(['prefix' => 'category'], function() {

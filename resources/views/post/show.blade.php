@@ -95,30 +95,11 @@
                       </div>
                       <span class="text-muted float-right ml-5">{{ $comment->DateAsCarbon->diffForHumans() }}
                       @auth
-                      @if($comment->user->id !== auth()->user()->id)
-                      <button class="btn btn-primary ml-5" onclick="showPopup()">Ответить</button>
-<div id="popup-overlay">
-  <div id="popup">
-  <form action="{{ route('answer.comment.store', [$post->id, $comment->user->id]) }}" method="post">
-                            @csrf
-                            <div class="row">
-                            
-                                <div class="form-group col-12" data-aos="fade-up">
-                                <label for="message" class="sr-only">Комментарий</label>
-                                <textarea name="message" id="message" class="form-control" placeholder="Комментарий" rows="10"></textarea>
-                                </div>
-                            </div>
-                            <input type="hidden" name="post_id" value="{{ $post->id }}">
-                            <input type="hidden" name="parent_id" value="{{ $comment->user->id }}">
-                            <div class="row">
-                                <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="ответить" class="btn btn-warning">
-                                    <button onclick="hidePopup()">Закрыть</button>
-                                </div>
-                            </div>
-                        </form>
-  </div>
-</div>
+                      @if($comment->user_id !== auth()->user()->id)
+                      <a href="{{ route('answer.comment.store', [$comment->post_id, $comment->user_id]) }}">
+                        <button class="btn btn-primary ml-5">
+                        Ответить
+                      </button></a>
                      </span>
                       @endif
                       @endauth
