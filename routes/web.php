@@ -26,13 +26,22 @@ Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::group(['prefix' => 'personal'], function() {
+    
 
             Route::get('/', App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
-        
+            /*Route::get('/create', App\Http\Controllers\Personal\CreateController::class)->name('admin.category.create');
+            Route::post('/', App\Http\Controllers\Personal\StoreController::class)->name('admin.category.store');
+            Route::get('/{category}', App\Http\Controllers\Personal\ShowController::class)->name('admin.category.show');
+            Route::get('/{category}/edit', App\Http\Controllers\Personal\EditController::class)->name('admin.category.edit');
+            Route::patch('/{category}', App\Http\Controllers\Personal\UpdateController::class)->name('admin.category.update');
+            Route::delete('/{category}', App\Http\Controllers\Personal\DeleteController::class)->name('admin.category.delete');*/
+
+
             Route::group(['prefix' => 'liked'], function() {
                 Route::get('/', App\Http\Controllers\Personal\Liked\IndexController::class)->name('personal.liked.index');
                 Route::delete('/{post}', App\Http\Controllers\Personal\Liked\DeleteController::class)->name('personal.liked.delete');
         });
+
 
             Route::group(['prefix' => 'comment'], function() {
                 Route::get('/', App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
@@ -102,20 +111,13 @@ Route::group(['prefix' => 'user'], function() {
     Route::group(['prefix' => 'post'], function() {
         Route::get('/', App\Http\Controllers\Post\IndexController::class)->name('post.index');
         Route::get('/{post}', App\Http\Controllers\Post\ShowController::class)->name('post.show');
-       
-    Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::group(['prefix' => '{post}/comments'], function() {
             Route::post('/', App\Http\Controllers\Post\Comment\StoreController::class)->name('post.comment.store');
-            
         });
-        Route::get('/{post_id}/{parent_id}', App\Http\Controllers\Post\AnswerToComments\ShowController::class)->name('answer.comment.store');
-
         Route::group(['prefix' => '{post}/likes'], function() {
             Route::post('/', App\Http\Controllers\Post\Like\StoreController::class)->name('post.like.store');
         });
-        
-    });
     });
     Route::group(['prefix' => 'category'], function() {
         Route::get('/', App\Http\Controllers\Category\IndexController::class)->name('category.index');
@@ -124,6 +126,3 @@ Route::group(['prefix' => 'user'], function() {
     });
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-

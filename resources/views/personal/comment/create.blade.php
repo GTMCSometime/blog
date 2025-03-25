@@ -5,7 +5,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row mb-2">
           <div class="col-sm-6">
-{{ dd($comment) }}
+
 </div>
 </div>
 </div>
