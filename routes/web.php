@@ -26,37 +26,26 @@ Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::group(['prefix' => 'personal'], function() {
-    
-
-            Route::get('/', App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
-            /*Route::get('/create', App\Http\Controllers\Personal\CreateController::class)->name('admin.category.create');
-            Route::post('/', App\Http\Controllers\Personal\StoreController::class)->name('admin.category.store');
-            Route::get('/{category}', App\Http\Controllers\Personal\ShowController::class)->name('admin.category.show');
-            Route::get('/{category}/edit', App\Http\Controllers\Personal\EditController::class)->name('admin.category.edit');
-            Route::patch('/{category}', App\Http\Controllers\Personal\UpdateController::class)->name('admin.category.update');
-            Route::delete('/{category}', App\Http\Controllers\Personal\DeleteController::class)->name('admin.category.delete');*/
-
-
-            Route::group(['prefix' => 'liked'], function() {
-                Route::get('/', App\Http\Controllers\Personal\Liked\IndexController::class)->name('personal.liked.index');
-                Route::delete('/{post}', App\Http\Controllers\Personal\Liked\DeleteController::class)->name('personal.liked.delete');
+        Route::get('/', App\Http\Controllers\Personal\Main\IndexController::class)->name('personal.main.index');
+    Route::group(['prefix' => 'liked'], function() {
+        Route::get('/', App\Http\Controllers\Personal\Liked\IndexController::class)->name('personal.liked.index');
+        Route::delete('/{post}', App\Http\Controllers\Personal\Liked\DeleteController::class)->name('personal.liked.delete');
         });
 
 
-            Route::group(['prefix' => 'comment'], function() {
-                Route::get('/', App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
-                Route::delete('/{comment}', App\Http\Controllers\Personal\Comment\DeleteController::class)->name('personal.comment.delete');
-                Route::get('/{comment}/edit', App\Http\Controllers\Personal\Comment\EditController::class)->name('personal.comment.edit');
-                Route::patch('/{comment}', App\Http\Controllers\Personal\Comment\UpdateController::class)->name('personal.comment.update');
+    Route::group(['prefix' => 'comment'], function() {
+        Route::get('/', App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
+        Route::delete('/{comment}', App\Http\Controllers\Personal\Comment\DeleteController::class)->name('personal.comment.delete');
+        Route::get('/{comment}/edit', App\Http\Controllers\Personal\Comment\EditController::class)->name('personal.comment.edit');
+        Route::patch('/{comment}', App\Http\Controllers\Personal\Comment\UpdateController::class)->name('personal.comment.update');
     });
 });
 });
 
 
 Route::middleware(['auth', 'verified', AdminMiddleware::class])->group(function () {
-Route::group(['prefix' => 'admin'], function() {
-
-    Route::get('/', App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.index');
+    Route::group(['prefix' => 'admin'], function() {
+        Route::get('/', App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.index');
 
     Route::group(['prefix' => 'categories'], function() {
         Route::get('/', App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
