@@ -55,6 +55,9 @@
                     <li class="nav-item">
                             <a class="nav-link" href="{{ route('personal.main.index') }}">Личная страница</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link">{{ auth()->user()->name }}</a>
+                        </li>
                     <li class="nav-item">
                     <form class="btn btn-sm btn-outline-danger" method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -68,6 +71,9 @@
                     @elseif(Auth::check() && Auth::user()->role == 0)
                     <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.index') }}">Панель администратора</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link">{{ auth()->user()->name }}</a>
                         </li>
                         <li class="nav-item">
                     <form class="btn btn-sm btn-outline-danger" method="POST" action="{{ route('logout') }}">
