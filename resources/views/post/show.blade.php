@@ -96,7 +96,7 @@
                       <span class="text-muted float-right ml-5">{{ $comment->DateAsCarbon->diffForHumans() }}
                       @auth
                       @if($comment->user_id !== auth()->user()->id)
-                      <a href="#">
+                      <a href="{{ route('personal.comment.create', [$comment->user_id, $comment->post_id]) }}">
                         <button class="btn btn-primary ml-5">
                         Ответить
                       </button></a>
