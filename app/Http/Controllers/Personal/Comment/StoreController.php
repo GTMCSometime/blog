@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Personal\Comment;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Personal\Comment\StoreRequest;
+use App\Models\Comment;
 
 class StoreController extends Controller
 {
-    public function __invoke() {
-
-        $comments = auth()->user()->comments;
-        return view('personal.comment.index', compact('comments'));
+    public function __invoke(Comment $comment, StoreRequest $request) {
+        $data = $request->validated();
+        $data['user_id'] = auth()->user()->id;
+        Comment::create($data);
+        return redirect()->route('post.show', $request->post_id);
 
     }
 }

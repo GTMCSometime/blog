@@ -35,7 +35,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::group(['prefix' => 'comment'], function() {
         Route::get('/', App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
-        Route::get('/{user_id}/{post_id}', App\Http\Controllers\Personal\Comment\CreateController::class)->name('personal.comment.create');
+        Route::get('/{comment}', App\Http\Controllers\Personal\Comment\CreateController::class)->name('personal.comment.create');
+        Route::post('{comment}', App\Http\Controllers\Personal\Comment\StoreController::class)->name('personal.comment.store');
         Route::delete('/{comment}', App\Http\Controllers\Personal\Comment\DeleteController::class)->name('personal.comment.delete');
         Route::get('/{comment}/edit', App\Http\Controllers\Personal\Comment\EditController::class)->name('personal.comment.edit');
         Route::patch('/{comment}', App\Http\Controllers\Personal\Comment\UpdateController::class)->name('personal.comment.update');

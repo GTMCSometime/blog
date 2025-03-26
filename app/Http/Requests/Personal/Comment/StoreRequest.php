@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Post\Comment;
+namespace App\Http\Requests\Personal\Comment;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,6 +23,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'message' => 'required|string',
+            'parent_id' => 'required|integer',
+            'post_id' => 'required|integer',
         ];
     }
 }
