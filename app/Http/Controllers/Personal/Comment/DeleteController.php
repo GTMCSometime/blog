@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Personal\Comment;
 
-use App\Http\Controllers\Controller;
 use App\Models\Comment;
 
-class DeleteController extends Controller
+class DeleteController extends BaseController
 {
     public function __invoke(Comment $comment) {
 
-        $comment->delete();
+        $this->service->delete($comment);
         return redirect()->route('personal.comment.index');
 
     }

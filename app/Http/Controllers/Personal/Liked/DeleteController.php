@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Personal\Liked;
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
 
-class DeleteController extends Controller
+class DeleteController extends BaseController
 {
     public function __invoke(Post $post) {
-
-        auth()->user()->likedPosts()->detach($post->id);
+        $this->service->detach($post);
         return redirect()->route('personal.liked.index');
 
     }
