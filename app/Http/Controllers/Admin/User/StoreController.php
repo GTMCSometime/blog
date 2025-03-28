@@ -11,7 +11,7 @@ class StoreController extends BaseController
     public function __invoke(StoreRequest $request) {
 
         $data = $request->validated();
-        $dd = dispatch(new StoreUserJob($data));
+        dispatch(new StoreUserJob($data));
         return redirect()->route('admin.user.index');
 
     }

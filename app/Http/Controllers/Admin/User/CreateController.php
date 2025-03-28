@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 
-class CreateController extends BaseController
+class CreateController extends Controller
 {
     public function __invoke() {
         $roles = User::getRoles();

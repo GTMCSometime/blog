@@ -1,6 +1,6 @@
-<?
+<?php
 
-namespace App\Service;
+namespace App\Service\Admin;
 
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;

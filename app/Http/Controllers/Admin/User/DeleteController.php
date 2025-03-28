@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 
-class DeleteController extends BaseController
+class DeleteController extends Controller
 {
     public function __invoke(User $user) {
 

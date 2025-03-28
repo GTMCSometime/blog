@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Post;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Service\PostService;
+use App\Service\Admin\PostService;
 
 class BaseController extends Controller
 {
