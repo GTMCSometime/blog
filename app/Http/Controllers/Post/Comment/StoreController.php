@@ -2,22 +2,16 @@
 
 namespace App\Http\Controllers\Post\Comment;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\Comment\StoreRequest;
 use App\Models\Comment;
 use App\Models\Post;
 
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(Post $post, StoreRequest $request) {
-        if(!auth()->user()) {
-            return redirect()->route('login');
-        }
         $data = $request->validated();
-        $data['user_id'] = auth()->user()->id;
-        $data['post_id'] = $post->id;
-        Comment::create($data);
+        $this->service->store($data, $post);
         return redirect()->route('post.show', $post->id);
 
     }
