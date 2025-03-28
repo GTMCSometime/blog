@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 
-class DeleteController extends Controller
+class DeleteController extends BaseController
 {
     public function __invoke(User $user) {
-
-        $user->delete();
-     
+        $this->service()->delete($user);
         return redirect()->route('admin.user.index');
-
     }
 }

@@ -2,29 +2,16 @@
 
 namespace App\Service\Admin;
 
-use App\Models\Post;
+use App\Jobs\StoreUserJob;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class UsersMakeService {
 
     public function store($data) {
         try {
             DB::beginTransaction();
-
-            if(isset($data['tag_ids'])) {
-                $tagIds = $data['tag_ids'];
-                unset($data['tag_ids']);
-            }
-    
-            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-            $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
+            dispatch(new StoreUserJob($data));
             
-            $post = Post::firstOrCreate($data);
-
-            if(isset($tagIds)) {
-                $post->tags()->attach($tagIds);
-            }
             
             DB::commit();
         } catch(\Exception $exception) {
@@ -34,29 +21,9 @@ class UsersMakeService {
 
     }
 
-    public function update($data, $post) {
+    public function update($data, $user) {
         try {
-            DB::beginTransaction();
-        
-
-            if(isset($data['tag_ids'])) {
-                $tagIds = $data['tag_ids'];
-                unset($data['tag_ids']);
-            }
-
-            if(isset($data['preview_image'])) {
-                $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-            }
-    
-            if(isset($data['main_image'])) {
-                $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
-            }
-            
-            $post->update($data);
-
-            if(isset($tagIds)) {
-            $post->tags()->sync($tagIds);
-            }
+            $user->update($data);
             
             DB::commit();
         } catch(\Exception $exception) {
@@ -64,7 +31,22 @@ class UsersMakeService {
             abort(500);
         }
 
-        return $post;
+        return $user;
+    }
+
+    public function delete($data) {
+        try {
+            DB::beginTransaction();
+
+            $data->delete();
+            
+            
+            DB::commit();
+        } catch(\Exception $exception) {
+            DB::rollBack();
+            abort(500);
+        }
+
     }
 
 }

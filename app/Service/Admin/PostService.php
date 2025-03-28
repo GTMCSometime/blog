@@ -67,4 +67,19 @@ class PostService {
         return $post;
     }
 
+    public function delete($data) {
+        try {
+            DB::beginTransaction();
+
+            $data->delete();
+            
+            
+            DB::commit();
+        } catch(\Exception $exception) {
+            DB::rollBack();
+            abort(500);
+        }
+
+    }
+
 }

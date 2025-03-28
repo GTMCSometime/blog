@@ -120,7 +120,7 @@
                                 <textarea name="message" id="message" class="form-control" placeholder="Комментарий" rows="10"></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" name="post_id" value="{{ $post->id }}">
+                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="row">
                                 <div class="col-12" data-aos="fade-up">
                                     <input type="submit" value="Оставить комментарий" class="btn btn-warning">

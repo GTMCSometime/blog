@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Requests\Admin\User\StoreRequest;
-use App\Jobs\StoreUserJob;
 
 
 class StoreController extends BaseController
@@ -11,7 +10,7 @@ class StoreController extends BaseController
     public function __invoke(StoreRequest $request) {
 
         $data = $request->validated();
-        dispatch(new StoreUserJob($data));
+        $this->service->store($data);
         return redirect()->route('admin.user.index');
 
     }

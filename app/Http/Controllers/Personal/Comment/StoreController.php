@@ -8,9 +8,8 @@ use App\Models\Comment;
 
 class StoreController extends Controller
 {
-    public function __invoke(Comment $comment, StoreRequest $request) {
+    public function __invoke(StoreRequest $request) {
         $data = $request->validated();
-        $data['user_id'] = auth()->user()->id;
         Comment::create($data);
         return redirect()->route('post.show', $request->post_id);
 

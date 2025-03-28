@@ -32,6 +32,7 @@
                             </div>
                             <input type="hidden" name="post_id" value="{{ $comment->post_id }}">
                             <input type="hidden" name="parent_id" value="{{ $comment->user_id }}">
+                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="row">
                                 <div class="col-12" data-aos="fade-up">
                                     <input type="submit" value="Оставить комментарий" class="btn btn-primary">

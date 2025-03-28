@@ -10,6 +10,5 @@ class IndexController extends BaseController
 
         $posts = Post::all();
         return view('admin.posts.index', compact('posts'));
-
     }
 }
