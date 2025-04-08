@@ -110,6 +110,7 @@
                     </section>
                     </div>
                     <div class="row">
+                        @auth
                     <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Отправить комментарий</h2>
                         <form action="{{ route('post.comment.store', $post->id) }}" method="post">
@@ -128,6 +129,7 @@
                             </div>
                         </form>
                     </section>
+                    @endauth
                     </div>
                 </div>
     </main>
