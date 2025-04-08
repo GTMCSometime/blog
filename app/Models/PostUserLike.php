@@ -12,4 +12,8 @@ class PostUserLike extends Model
     protected $table = 'post_user_likes';
     protected $guard = false;
 
+    protected $fillable = [
+        'post_id',
+        'user_id',
+    ];
 }

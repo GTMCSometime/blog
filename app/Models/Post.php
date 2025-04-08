@@ -15,9 +15,8 @@ class Post extends Model
         'content',
         'category_id',
         'tag_ids[]',
+        'preview_image',
         'main_image',
-        'preview_image'
-
     ];
 
     protected $table = 'posts';
